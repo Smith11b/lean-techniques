@@ -1,14 +1,16 @@
+"use strict"
 const axios = require("axios");
 const readline = require('readline-sync')
 
 const main = (function init() {   // wrapped in a self calling function so variables will not be global
+
     // Executable Code---------------
     (async function execute(){
         const res = await getPhotos();  // wait for photos to get back and resolve
         const lookup = createLookup(res.data); // flatten data into lookup
         while(true){
             let input = readline.question("Which album would you like to see? | i.e: photo-album 2 = the second album | press 'e' to Exit |")
-            let albumNum =
+            let albumNum = // I need to use substring here. or split into an array then use the plus uniary operator
             console.log(albumNum)
             if(input === "e"){
                 break;
@@ -29,7 +31,7 @@ const main = (function init() {   // wrapped in a self calling function so varia
     
     
     
-    // Functions and Logic-----------------------------------------
+    // Functions Definitions-----------------------------------------
 
 
     // Here I'll do it both ways, when the application is small, multiple small api calls
@@ -65,7 +67,10 @@ const main = (function init() {   // wrapped in a self calling function so varia
 
   }
  
-  return {init, getPhotos, createLookup};
+  return {test__Api: {init, getPhotos}}; 
+  // I returned it this way so that I could test each function via the test__Api, that would be nested within
+  // the public api, and used underscores to note that it should not be changed.
+  // this allows me to use main.test__Api.functionName in jest to unit test my functions. 
 })();
 
 module.exports = main;
