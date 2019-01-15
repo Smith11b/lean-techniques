@@ -1,0 +1,28 @@
+{
+  "name": "lean-tech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "jest": "^23.6.0",
+    "readline-sync": "^1.4.9"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smith11b/lean-techniques.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Smith11b/lean-techniques/issues"
+  },
+  "homepage": "https://github.com/Smith11b/lean-techniques#readme"
+}
