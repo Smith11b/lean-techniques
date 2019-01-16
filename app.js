@@ -54,10 +54,11 @@ const main = (function app() {
 
   /* I'm not using this function, but if I were going to do a get request every time I got user input, I would get
      the url like this. store that in a url variable. then run the get request with that url instead.
-     then console log the response the same as I did with my way. 
+     I'd then console log the response the same as I did the way I used. 
      If we found that we were scaling fast in the size of the dataset, but requests were low.
      I would do it this way intead, as it's easier to scale using sharding, load balancing etc.
-     It's also faster to chunk the data into albums instead of using the single request I used in my solution. */
+     It's also faster to chunk the data into albums by using that enpoing
+     instead of using the single request I used in my solution.  */
 
   function createURL(input) {
     if (input === "e") {

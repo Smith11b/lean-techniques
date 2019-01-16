@@ -8,15 +8,15 @@ In order to use it correctly you must enter `photo-album "albumNumber"`with albu
 
 ### Things I ran into in the build.
 
-**Size vs Speed**
-The dataset contained 5000 items. They were objects made up of mostly strings and numbers. Because of this, I chose to make one large API call at the beginning of the app loading. Had this been actual images, depending on our resources, I still may have done it this way with a cache, but breaking it up into the smaller api calls may have been better.
+**Size vs Speed**<br>
+The dataset contained 5000 items. They were objects made up of mostly strings and numbers. Because of this, I chose to make one large API call at the beginning of the app loading. I imagine that even if these were actual photos, I'd be using the url
+and mapping that to images with a src tag so the data wouldn't get too large until we became massive.
+I made this choice because the dataset was small (memory wise) and multiple API calls would slow the app down, especially if made in quick succession. I also wrote it the other way. (the way I believe it was intended)
 
-I made this choice because the dataset was small (memory wise) and multiple API calls would slow the app down, especial if made in quick succession. I also wrote it the other way.
-
-**Modular Pattern**
+**Modular Pattern**<br>
 I used the modular pattern no classes, instead of oop, because this to me felt like a small feature add, and not something large that would require instances.
 
-**Testing**
+**Testing**<br>
 I used Jest to test the functions, but didn't get the coverage I wanted. I wanted to use mocks to run the async tests.
 
 ## To Run:
