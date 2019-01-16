@@ -22,6 +22,7 @@ I used the modular pattern with no classes, instead of OOP, because this to me f
 I used Jest to test the functions, but didn't get the coverage I wanted. I wanted to use mocks to run the async tests, and
 to simply write more test cases for each function.
 
+
 ## To Run:
 - You need Node.js installed. You can get that [here](https://nodejs.org/en/) follow the instructions to install node.js globally.
 - Clone this repo

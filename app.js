@@ -5,14 +5,17 @@ const readline = require("readline-sync");
 const main = (function app() {
   // wrapped in an IIFE so variables will not be global and I have free reign
   // in my name space. I chose modular programming here because this seemed like
-  // a feature add. but also could have done this with OOP
+  // a feature add. but also could have done this with OOP.
+  // I name my functions instead of using arrows everywhere because it allows them to
+  // show up on the stack trace when debugging.
+
   // Executable Code---------------------------------------------------
   const runApp = (async function execute() {
     const res = await getPhotos(); // wait for photos to get back and resolve
     if (res) {
       const lookup = createLookup(res.data);
       while (true) {
-        var input = getInput();
+        const input = getInput();
         if (input === "e") break;
         checkInput(input, lookup);
       }
@@ -24,11 +27,10 @@ const main = (function app() {
   // Function Definitions-----------------------------------------
 
   function getInput() {
-    let input = readline.question(
+     return (readline.question(
       "Which album would you like to see? | i.e: photo-album 2 = the second album | press 'e' to Exit |\n"
-    );
-    return input;
-  }
+    ));
+    }
 
   function checkInput(input, lookup) {
     if (input === "e") {
