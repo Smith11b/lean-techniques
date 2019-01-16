@@ -9,12 +9,13 @@ const main = (function app() {
   // Executable Code---------------------------------------------------
   const runApp = (async function execute() {
     const res = await getPhotos(); // wait for photos to get back and resolve
+    if(res){
     const lookup = createLookup(res.data);
     while (true) {
       var input = getInput();
       if (input === "e") break;
       checkInput(input, lookup);
-    }
+    }}
   })();
 
   // End Executable Code-------------------------------------------------------
@@ -58,7 +59,7 @@ const main = (function app() {
      I would do it this way intead, as it's easier to scale using sharding, load balancing etc.
      It's also faster to chunk the data into albums instead of using the single request I used in my solution. */
 
-  function changeInputToURL(input) {
+  function createURL(input) {
     if (input === "e") {
       return;
     }
@@ -99,7 +100,10 @@ const main = (function app() {
 
   async function getPhotos() {
     // here I would have this function take the url an use it in the axios if I was doing it with an api call each input
-    const res = await axios.get("https://jsonplaceholder.typicode.com/photos");
+    const res = await axios.get("https://jsonplaceholder.typicode.com/photos")
+    .catch(err => {
+        console.log("Uh oh, something went wrong, the app will now exit. Please try again.")
+    });
     return res;
   }
 
